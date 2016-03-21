@@ -1,0 +1,66 @@
+ACTOR GatLaser : Weapon 6570
+{
+	Weapon.AmmoUse 1
+	Weapon.SlotNumber 4
+	Weapon.AmmoGive 60
+	Weapon.AmmoType "Cell"
+	Inventory.PickupMessage "You picked up a Gatling Laser"
+	
+
+	States
+	{
+	Ready:
+		GATL A 1 A_WeaponReady
+		Loop
+	Deselect:
+		GATL A 1 A_Lower
+		Loop
+	Select:
+		GATL A 1 A_Raise
+		Loop
+	Fire:
+		GATL C 0 A_PlaySound("gatcharge", CHAN_WEAPON)
+		GATL CDEFGHI 3
+	Hold:
+		GATL B 0 A_PlaySound("gatling", CHAN_WEAPON)
+		GATL B 0 A_GunFlash
+		GATL J 1 A_FireCustomMissile ("Laser",0,1,random(5,-5),random(5,-5),0,0)
+		GATL B 0 Offset (0, 36)
+		GATL B 1 A_SetPitch (pitch-0.25)
+		GATL B 0 A_SetPitch (pitch+0.15)
+		GATL B 0 Offset (0, 33)
+		GATL IHGFEDCA 3 A_ReFire
+		Goto Ready
+	Flash:
+		GATT A 1 Bright A_Light1
+		Goto LightDone
+		GATT B 1 Bright A_Light1
+		Goto LightDone
+	Spawn:
+		GATS A -1
+		Stop
+	}
+}
+
+ACTOR Laser
+{
+	Radius 13
+	Height 8
+	Speed 85
+	Damage 3
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 0.75
+	DeathSound "weapons/plasmax"
+	Obituary "$OB_MPPLASMARIFLE"
+	States
+	{
+	Spawn:
+		LSER A 1 Bright
+		Loop
+	Death:
+		LAZR ABCDE 4 Bright
+		Stop
+	}
+}

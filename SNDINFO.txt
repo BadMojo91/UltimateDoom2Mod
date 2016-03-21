@@ -1,0 +1,5 @@
+pulsefire PULSE
+shotty SHOTGUNS
+autoshotty ATSHOTGN
+gatling GATLASR
+gatcharge GATCHRG

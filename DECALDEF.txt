@@ -1,0 +1,11 @@
+decal Pulse 5666
+{
+	pic PULZK0
+	// shade "00 10 00"
+	x-scale 1
+	y-scale 1
+	randomflipx
+	randomflipy
+	add 0.75
+}
+generator PulseBall        Pulse

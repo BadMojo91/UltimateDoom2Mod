@@ -1,0 +1,18 @@
+map MAP01 lookup "MAP01"
+{
+   levelnum = 1
+   next = "MAP02"
+   sky1 = "SKY1", 0
+   Music = "D_RUNNIN"
+   par = 30
+   NoJump
+}
+
+map MAP02 lookup "MAP02"
+{
+   levelnum = 2
+   next = "MAP03"
+   sky1 = "MOJOSKY", 0
+   music = "UN45"
+   NoJump
+}
