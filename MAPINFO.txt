@@ -13,6 +13,6 @@ map MAP02 lookup "MAP02"
    levelnum = 2
    next = "MAP03"
    sky1 = "MOJOSKY", 0
-   music = "UN45"
+   music = "MAP02"
    NoJump
 }
